@@ -1,0 +1,22 @@
+/* CSS Document */
+*{margin:0px;padding:0px;}
+
+body{background-color:RGBA(228,231,235,0.6)}
+
+.head{position:absolute;top:0px;height:50px;width:100%;background-color:RGBA(202,220,220,0.7);box-shadow:10px 10px 10px #999999;}
+
+.main{position:absolute;height:100%;width:100%;z-index:-1;}
+
+.under{position:fixed;bottom:0px;height:30px;width:100%;background-color:RGBA(196,190,252,0.7);}
+
+.main_body{margin:100px auto;width:800px;height:400px;}
+
+.main_body_sub{position:relative;width:600px;height:100px;}
+
+table{position:relative;left:100px;}
+
+a{text-decoration:none;}
+
+.title{color:#09F;font-size:20px;}
+
+

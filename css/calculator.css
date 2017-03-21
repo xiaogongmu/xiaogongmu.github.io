@@ -1,0 +1,15 @@
+/* CSS Document */
+*{margin:0px;padding:0px;}
+
+body{background-color:RGBA(228,231,235,0.6);}
+
+input{height:50px;width:50px;background-color:#FCC;box-shadow:0px 0px 10px RGBA(222,226,230,0.8); }
+
+.result{height:40px;width:220px;}
+
+.one{width:250px;height:400px;margin:5% auto;}
+
+table,input{border-radius:5px;}
+
+.result,.result{line-height:36px;font-size:13px;}
+
