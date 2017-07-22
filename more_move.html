@@ -5,9 +5,10 @@
 	<title>move</title>
 	<style>
 		*{margin: 0px ; padding: 0px}
-		#main{margin: 0 auto;width: 1000px;height: 800px;background-color: #777}
+		#main{margin: 0 auto;width: 1010px;height: 800px;background-color: #777}
 
 		.div_list{width: 95px;height: 225px;;float: left;}
+		.div_select{border-style: solid;border-width: 2px;float: left;border-color: #FF0000}
 		.div_1{width: 95px;height: 75px;background-color: #1100FF;}
 		.div_2{width: 95px;height: 75px;background-color: #FF0011;}
 		.div_3{width: 95px;height: 75px;background-color: #11EE11;}
@@ -24,10 +25,14 @@
 	<div class="div_1"></div>
 	<div class="div_2"></div>
 	<div class="div_3"></div>
+	<div class="div_3 div_select"></div>
 	</div>
 
 
 	<div id="main" >
+<!-- 	<table id="table_main">
+							//待修改
+	</table> -->
 
 	</div>
 
@@ -37,15 +42,22 @@
 <script type="text/javascript">
 var width_mo = 10;
 var height_mo = 10;
+
+
+
 for (var i = height_mo - 1; i >= 0; i--) {
 	for (var j = width_mo - 1; j >= 0; j--) {
-		$("#main").append("<div class='div_common'></div>");
+		$("table_main").append("<div class='div_common' id=grid"+i+""+j+"></div>");
 	}
 	$("#main").append("<br>");
 }
+var x_index = Math.floor(Math.random()*width_mo);
+var y_index = Math.floor(Math.random()*height_mo);
+$("#grid"+x_index+""+y_index).css('background-color', '#FF0000');
 
-
-
+</script>
+<script type="text/javascript">
+	
 
 </script>
 
