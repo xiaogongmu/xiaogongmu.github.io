@@ -1,0 +1,81 @@
+/* CSS Document */
+
+body {
+    background-color: #EEF0F3;
+    color: #616161;
+}
+
+
+
+
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.resume_body {
+    width: 600px;
+    height: 500px;
+    background-color: ;
+    margin: 30px 330px;
+    
+}
+
+.head {
+    background-color: rgba(182, 182, 182, 0.7);
+
+    width: 600px;
+    line-height: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #F1F6FB
+}
+
+.head_model {
+    margin-top: 40px;
+    width: 600px;
+    height: 200px;
+    background-color: rgba(204, 204, 204, 0.7);
+
+    -moz-border-radius: 6px;
+
+    border-radius: 6px
+}
+
+.left {
+    position: fixed;
+    width: 300px;
+    height: 552px;
+    background-color: rgba(204, 204, 204, 0.7);
+    margin-left: ;
+    text-align: center;
+    -moz-border-radius: 10px;
+    border-radius: 10px
+}
+
+.smail_title {
+    border-bottom: 1px solid #575757;
+    font-size: 20px;
+    color: #807A5D;
+    -webkit-transition: 2s;
+    -moz-transition: 2s;
+    transition: 2s;
+}
+
+.smail_title_1 {
+    color: #131313
+}
+
+.link_a {
+    border: 1px solid;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: #807A5D;
+    font-size: 10px;
+    text-decoration: none
+}
