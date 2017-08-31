@@ -7,6 +7,7 @@
     <title>小公墓个人简历</title>
     <link href="https://cdn.bootcss.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/canvas_my_b.css" />
+    <link href="css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/resume.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </head>
@@ -24,7 +25,7 @@
     transition: all 2s cubic-bezier(0.1, 0.98, 0.99, 0.99);
 }
 
-.resume_main{
+.resume_main {
     width: 1000px;
     margin: 0 auto;
 }
@@ -33,7 +34,9 @@
 <body>
     <div class="resume_main">
         <div class="left">
-            <div style="height:170px;width:170px;background-color:#0C9;margin:50px 50px;border-radius:85px"><img style="width:170px;width:170px;border-radius:85px" src="img/Head portrait .jpg" /></div>
+            <div style="height:170px;width:170px;background-color:#0C9;margin:50px 50px;border-radius:85px">
+                <a href="img/Head portrait .jpg" data-lightbox="image-Head" data-title="Head portrait"><img style="width:170px;width:170px;border-radius:85px" src="img/Head portrait .jpg" /></a>
+            </div>
             <span style="font-size:17px"> 小公墓的简历</span>
             <br />
             <span style="font-size:13px;color:#3D3D3D"> “不要吹灭你的灵感和你的想象力; 不要成为你的模型的奴隶。”
@@ -68,7 +71,7 @@
                 <i class="icon-github"></i><a style="text-decoration:none;color:#616161" href="https://github.com/xiaogongmu">www.github.com/xiaogongmu</a>
                 <br />
             </div>
-           <!--  <div class="head_model" style="height:160px">
+            <!--  <div class="head_model" style="height:160px">
                 <div class="smail_title"> <i class="icon-bookmark"></i> Personal characteristics.个人特色
                     <br />
                 </div>
@@ -84,28 +87,34 @@
                 <br />
                 <span>一个通过鼠标点击 来产生水滴的特效</span>
                 <br />
-                <img style="margin-left:70px;width:150px ; height:150px;" src="img/Drops of water.png" />
+                <a href="img/Drops of water.png" data-lightbox="image-lists" data-title="Drops of water"><img style="margin-left:70px;width:150px ; height:150px;" src="img/Drops of water.png" /></a>
                 <br />
                 <i class=" icon-ok-circle smail_title_1"></i><span class="smail_title_1">网页版贪吃蛇</span>
                 <a class="link_a" href="https://xiaogongmu.github.io/snake.html" target="_blank"><i class=" icon-magic"></i>Demo  </a>
                 <br />
                 <span>9×9贪吃蛇</span>
                 <br />
-                <img style="margin-left:70px;width:150px ; height:150px;" src="img/Gluttonous Snake.png" />
+                <a href="img/Gluttonous Snake.png" data-lightbox="image-lists" data-title="Gluttonous Snake">
+                    <img style="margin-left:70px;width:150px ; height:150px;" src="img/Gluttonous Snake.png" />
+                </a>
                 <br />
                 <i class=" icon-ok-circle smail_title_1"></i><span class="smail_title_1">网页版个人简历</span>
                 <a class="link_a" href="#" target="_blank"><i class=" icon-magic"></i>Demo  </a>
                 <br />
                 <span>设计优雅、内容完善的静态简历页面</span>
                 <br />
+                 <a href="img/resume.png" data-lightbox="image-lists" data-title="resume">
                 <img style="margin-left:70px;width:270px ; height:150px;" src="img/resume.png" />
+                </a>
                 <br />
                 <i class=" icon-ok-circle smail_title_1"></i><span class="smail_title_1">网格版时钟</span>
                 <a class="link_a" href="https://xiaogongmu.github.io/preschool.html" target="_blank"><i class=" icon-magic"></i>Demo  </a>
                 <br />
                 <span>HTML5 画布实现的时钟</span>
                 <br />
+                <a href="img/clock.jpg" data-lightbox="image-lists" data-title="clock">
                 <img style="margin-left:70px;width:150px ; height:150px;" src="img/clock.jpg" />
+                </a>
                 <br />
             </div>
             <div class="head_model" style="height:130px">
@@ -162,8 +171,7 @@
 </html>
 <script type="text/javascript" src="js/canvas_my_b.js"></script>
 <script type="text/javascript" src="js/clock.js"></script>
-<script type="text/javascript" src="js/setIntercak20.js">
-</script>
+<script src="js/lightbox.min.js"></script>
 <script>
 window["onscroll"] = function() {
     var s = document.documentElement.scrollTop;
