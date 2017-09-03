@@ -112,4 +112,4 @@ function draw_cir_i() {
 function proceed() {
     draw_cir_i();
 }
-setInterval("proceed()", 20);
+setInterval("proceed()", 10);
