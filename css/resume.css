@@ -88,3 +88,12 @@ body {
     font-size: 10px;
     text-decoration: none
 }
+
+.fate.out{
+opacity: 0;
+}
+
+.fate{
+   transition: all 1500ms linear 700ms;
+  opacity: 1;
+}
