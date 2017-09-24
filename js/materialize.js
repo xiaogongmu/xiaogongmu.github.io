@@ -1197,7 +1197,7 @@ $(document).ready(function(){
         }
 
         // Prevent the anchor's default click action
-        e.preventDefault();
+        // e.preventDefault();
       });
     });
 
