@@ -8,7 +8,9 @@ $(document).pjax('a[data-pjax]', '#wrapper', {
 
 
 $(document).on('pjax:start', function() { NProgress.start(); });
-$(document).on('pjax:end', function() { NProgress.done(); });
+$(document).on('pjax:end', function() { NProgress.done();
+	 $(".fate").removeClass('out');
+ });
 
 $(document).ready(function() {
     NProgress.start();
@@ -16,3 +18,10 @@ $(document).ready(function() {
 $(window).load(function() {
     NProgress.done();
 });
+
+$(function() {
+        setTimeout(function() {
+            $(".fate").removeClass('out') }, 500)
+
+
+    });

@@ -1,0 +1,36 @@
+  .post-list-item {
+
+
+    width: 96%;
+
+    padding: 10px;
+    margin: 1%;
+}
+
+.tabs {
+    position: relative;
+    height: 64px;
+    background-color: #fff;
+    margin: 0 auto;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.tabs .tab {
+    line-height: 64px;
+    height: 64px;
+}
+
+.tabs .indicator {
+
+    background-color: #eeeeee;
+}
+
+.fate.out{
+opacity: 0;
+}
+
+.fate{
+   transition: all 1500ms linear 700ms;
+  opacity: 1;
+}
