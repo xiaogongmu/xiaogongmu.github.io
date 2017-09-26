@@ -17,11 +17,34 @@ $(document).ready(function() {
 });
 $(window).load(function() {
     NProgress.done();
+  
 });
 
 $(function() {
         setTimeout(function() {
             $(".fate").removeClass('out') }, 500)
+});
 
 
-    });
+
+$(function(){
+	var ar = new Array;
+	$('img.activator').each(
+		function(){
+
+    	var n = Math.round(50*Math.random());
+    	while (ar.indexOf(n)>-1) {
+    		 n++;
+    		 if (n>50) {
+    		 	n=0;
+    		 }
+    	}
+    	ar.push(n);
+    	this.src="img/background/a"+n+".jpg ";
+    })
+});
+
+
+
+
+
