@@ -34,7 +34,7 @@ var LAppDefine = {
     // MOTION_GROUP_SHAKE : "shake",
     // MOTION_GROUP_TAP_BODY : "tap_body",
 
-    MODEL_NOIR : "assets/noir/noir.json",
+    MODEL_NOIR : "/assets/noir/noir.json",
     MOTION_GROUP_IDLE : 'idle',
     MOTION_GROUP_TAP_BODY: 'tap_body',
     MOTION_GROUP_PINCH_IN : "pinch_in",
