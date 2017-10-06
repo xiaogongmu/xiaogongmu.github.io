@@ -5,12 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <title>小公墓</title>
     <!--   <link id="favicon" rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link href="css/nprogress.css" rel="stylesheet" type="text/css" />
-    <link href='css/style.css' rel='stylesheet' />
-    <link href="css/canvas_my_b.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/xyy.css">
+    <link href="../css/nprogress.css" rel="stylesheet" type="text/css" />
+    <link href='../css/style.css' rel='stylesheet' />
+    <link href="../css/canvas_my_b.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/xyy.css">
 </head>
 <style type="text/css">
 
@@ -21,7 +21,7 @@
         <div class="nav-wrapper grey darken-3">
             <div class="container">
                 <a href="/index.html">
-                    <div class="navbar-fixed" style="display: inline-block"><img class="circle picker__wrap" src="img/head_s.jpg" />
+                    <div class="navbar-fixed" style="display: inline-block"><img class="circle picker__wrap" src="../img/head_s.jpg" />
                     </div>
                 </a>
                 <a data-pjax href="index.html" class="brand-logo">小公墓</a>
@@ -37,37 +37,31 @@
     </nav>
     <div id='wrapper'>
         <div class="container fate out">
-            <div class="preloader-wrapper big active">
-                <div class="spinner-layer spinner-blue-only">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
+           <canvas class="card-title" id="canv" style="background:url(/img/clock_background_1.jpg);margin:10px auto;background-size:200px 200px;border-radius:201px;z-index:-11 " width="202px" height="202px">
+                        </canvas>
             <div class="row">
                 <div class="col s12 m12">
                     <div class="card grey darken-1">
                         <div class="card-content white-text">
-                            <span class="card-title">抱歉</span>
-                            <p>该模块还在建设中.......</p>
+                            <span class="card-title">这是一个使用canvas制作的一个时钟</span>
+                            <p>默认情况话每秒绘制20次</p>
                         </div>
                         <div class="card-action">
-                            <a href="#">building...</a>
-                            <a href='#'>building...</a>
+                            <a href="#">2017/1</a>
+                            <a href='#'></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
     
-    <canvas id="glcanvas" width="200px" height="350px" 
+    
+
+
+                        <canvas id="glcanvas" width="200px" height="350px" 
                 style="position: fixed;right: -15px;bottom: 50px;z-index: 13">
     </canvas>
 
@@ -80,28 +74,31 @@
             </div>
         </div>
     </footer>
-     <script type="text/javascript " src="js/jquery-2.2.2.js "></script>
-    <script type="text/javascript " src="js/materialize.js "></script>
-    <script type="text/javascript " src="js/nprogress.js "></script>
-    <script type="text/javascript " src='js/velocity.js'></script>
-    <script type="text/javascript " src='js/stackgrid.adem.js'></script>
-    <script type="text/javascript " src='js/website.js'></script>
-    <script type="text/javascript " src="js/canvas_waterDrop.js"></script>
-    <script type="text/javascript " src="js/jquery.pjax.js "></script>
+    <script type="text/javascript " src="../js/jquery-2.2.2.js "></script>
+    <script type="text/javascript " src="../js/canvas_waterDrop.js" ></script>
+    <script type="text/javascript " src="../js/materialize.js "></script>
+    <script type="text/javascript " src="../js/nprogress.js "></script>
+    <script type="text/javascript " src='../js/velocity.js'></script>
+    <script type="text/javascript " src='../js/stackgrid.adem.js' ></script>
+    <script type="text/javascript " src='../js/website.js'></script>
+    <script type="text/javascript " src="../js/jquery.pjax.js "></script>
+    <script type="text/javascript " src="../js/clock.js "></script>
 
-    <script type="text/javascript" src="js/live2d.min.js"></script>
-    <script type="text/javascript" src="js/Live2DFramework.js"></script>
 
-    <script src="src/utils/MatrixStack.js"></script>
-    <script src="src/utils/ModelSettingJson.js"></script>
-    <script src="src/PlatformManager.js"></script>
-    <script src="src/LAppDefine.js"></script>
-    <script src="src/LAppModel.js"></script>
-    <script src="src/LAppLive2DManager.js"></script>
-    <script src="src/SampleApp1.js"></script>
+    <script type="text/javascript" src="../js/live2d.min.js"></script>
+    <script type="text/javascript" src="../js/Live2DFramework.js"></script>
 
-    
-    <script type="text/javascript " src="js/xyy.js"></script>
+    <script src="../src/utils/MatrixStack.js"></script>
+    <script src="../src/utils/ModelSettingJson.js"></script>
+    <script src="../src/PlatformManager.js"></script>
+    <script src="../src/LAppDefine.js"></script>
+    <script src="../src/LAppModel.js"></script>
+    <script src="../src/LAppLive2DManager.js"></script>
+    <script src="../src/SampleApp1.js"></script>
+
+
+
+    <script type="text/javascript " src="../js/xyy.js"></script>
 </body>
 
 </html>

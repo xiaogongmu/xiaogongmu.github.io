@@ -20,16 +20,16 @@
     <nav>
         <div class="nav-wrapper grey darken-3">
             <div class="container">
-                <a href="index.html">
+                <a href="/index.html">
                     <div class="navbar-fixed" style="display: inline-block"><img class="circle picker__wrap" src="img/head_s.jpg" />
                     </div>
                 </a>
                 <a data-pjax href="index.html" class="brand-logo">小公墓</a>
                 <div class="row right navbar-fixed ">
                     <ul class="tabs navbar-fixed " style="background-color: rgba(0,0,0,0);">
-                        <li class="tab col s3"><a data-pjax class="grey-text text-lighten-3" href="classify.html">分类</a></li>
-                        <li class="tab col s3"><a data-pjax class="active grey-text text-lighten-3" href="complaints.html">吐槽</a></li>
-                        <li class="tab col s3"><a data-pjax class="grey-text text-lighten-3" href="about.html">关于</a></li>
+                        <li class="tab col s3"><a data-pjax class="grey-text text-lighten-3" href="/classify.html">分类</a></li>
+                        <li class="tab col s3"><a data-pjax class="active grey-text text-lighten-3" href="/complaints.html">吐槽</a></li>
+                        <li class="tab col s3"><a data-pjax class="grey-text text-lighten-3" href="/about.html">关于</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,6 +50,11 @@
                     </div>
                 </div>
             </div>
+
+<canvas id="glcanvas" width="200px" height="350px" 
+                style="position: fixed;right: -15px;bottom: 50px;z-index: 13">
+    </canvas>
+
             <div class="row">
                 <div class="col s12 m12">
                     <div class="card grey darken-1">
@@ -85,8 +90,21 @@
     <script type="text/javascript " src='js/velocity.js'></script>
     <script type="text/javascript " src='js/stackgrid.adem.js'></script>
     <script type="text/javascript " src='js/website.js'></script>
-    <script type="text/javascript " src="js/canvas_my_b.js "></script>
+    <script type="text/javascript " src="js/canvas_waterDrop.js"></script>
     <script type="text/javascript " src="js/jquery.pjax.js "></script>
+
+    <script type="text/javascript" src="js/live2d.min.js"></script>
+    <script type="text/javascript" src="js/Live2DFramework.js"></script>
+
+    <script src="src/utils/MatrixStack.js"></script>
+    <script src="src/utils/ModelSettingJson.js"></script>
+    <script src="src/PlatformManager.js"></script>
+    <script src="src/LAppDefine.js"></script>
+    <script src="src/LAppModel.js"></script>
+    <script src="src/LAppLive2DManager.js"></script>
+    <script src="src/SampleApp1.js"></script>
+
+
     <script type="text/javascript " src="js/xyy.js"></script>
 </body>
 
