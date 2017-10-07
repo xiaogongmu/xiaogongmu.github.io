@@ -1,8 +1,7 @@
 // JavaScript Document
 var widthT = 200;
 var widthB = 100;
-var c = document.getElementById("canv");
-var ctx_clock = c.getContext("2d")
+
 
 
 function clearP() {
@@ -116,4 +115,12 @@ function move() {
     ctx_clock.translate(-widthB - 1, -widthB - 1);
 }
 
+var ctx_clock = null;
+function do_clock(){
+var c = document.getElementById("canv");
+if (c!=null) {
+ctx_clock= c.getContext("2d");
 setInterval("move()", 50);
+}
+    
+}

@@ -10,6 +10,8 @@ $(document).pjax('a[data-pjax]', '#wrapper', {
 $(document).on('pjax:start', function() { NProgress.start(); });
 $(document).on('pjax:end', function() { NProgress.done();
 	 $(".fate").removeClass('out');
+     console.log(this);
+     do_clock();
  });
 
 $(document).ready(function() {
@@ -22,7 +24,8 @@ $(window).load(function() {
 
 $(function() {
         setTimeout(function() {
-            $(".fate").removeClass('out') }, 500)
+            $(".fate").removeClass('out') }, 500);
+
 });
 
 
