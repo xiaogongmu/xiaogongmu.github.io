@@ -10,8 +10,9 @@ $(document).pjax('a[data-pjax]', '#wrapper', {
 $(document).on('pjax:start', function() { NProgress.start(); });
 $(document).on('pjax:end', function() { NProgress.done();
 	 $(".fate").removeClass('out');
-     console.log(this);
+     if(this.URL.indexOf("clock.html")>-1){
      do_clock();
+    }
  });
 
 $(document).ready(function() {

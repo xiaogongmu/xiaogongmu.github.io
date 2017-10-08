@@ -115,12 +115,35 @@ function move() {
     ctx_clock.translate(-widthB - 1, -widthB - 1);
 }
 
+var stringurl1 = 'url("/img/clockBackground/c';
+var stringurl2 = '.jpg';
+var clockBackgroundNo = Math.round(3*Math.random());
+var maxClockBackgroundNo = 3;
+
+
+var canvas_clock= document.getElementById("canv");
+if(canvas_clock!=null){
+canvas_clock.onclick=function(){
+    clockBackgroundNo++;
+    if(clockBackgroundNo>maxClockBackgroundNo){clockBackgroundNo = 0;}
+    document.getElementById('canv').style.backgroundImage=stringurl1+clockBackgroundNo+stringurl2;
+    }
+}
+
 var ctx_clock = null;
 function do_clock(){
 var c = document.getElementById("canv");
+
 if (c!=null) {
 ctx_clock= c.getContext("2d");
-setInterval("move()", 50);
+document.getElementById('canv').style.backgroundImage=stringurl1+clockBackgroundNo+stringurl2;
+document.getElementById('canv').style.cursor = "pointer";
+document.getElementById('canv').style.margin = "10px auto";
+setInterval("move()", 250);
 }
     
 }
+do_clock();
+
+
+
