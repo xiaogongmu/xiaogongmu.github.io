@@ -1,8 +1,8 @@
 // JavaScript Document
 
 var begin=0;
-var max_x=9;
-var max_y=9;
+var max_x=20;
+var max_y=20;
 var x = [];
 var y = [];
 var last_x;
@@ -11,20 +11,23 @@ var count = 0;
 var direction = 39;
 var tt;
 var keep = 1;
-var speed = 500;
+var speed = 250;
 var stoping = 0;
 
 
 var table = document.createElement("table");
+table.style.width = '0px';
+table.style.margin = "0 auto 20px"
 var div = document.getElementById("no1");
 div.appendChild(table);
 var tbody = document.createElement("tbody");
 table.appendChild(tbody);
-for(var i=1;i<=9;i++){
+for(var i=1;i<=max_y;i++){
 	var tr = document.createElement("tr");
 	tbody.appendChild(tr);
-	for(var j=1;j<=9;j++){
+	for(var j=1;j<=max_x;j++){
 		var td =document.createElement("td");
+		td.style.padding = '1px';
 		tr.appendChild(td);
 		var div1 = document.createElement("div");
 		div1.className="b";
@@ -48,10 +51,10 @@ document.getElementById("start")["onclick"]=function(){
 		document.getElementById(n).exist="1";
 		begin=1;
 		food();
-		speed=document.getElementById("selectSpeed").value
+		speed=speed;
 		tt=setInterval(auto,speed);
 		}
-	
+
 	document.getElementById("again")["onclick"]=function(){
 		clearInterval(tt);
 		begin=0;
@@ -73,21 +76,21 @@ document.getElementById("start")["onclick"]=function(){
 			}
 			begining();
 		}
-	
+
 	document.getElementById("stop")["onclick"]=function(){
 		clearInterval(tt);
 		stoping = 1;
 		}
-		
+
 	document.getElementById("continue")["onclick"]=function(){
 		if(stoping==1&&keep==1){
 			tt=setInterval(auto,speed);
 			stoping=0;
 			}
-		
+
 	}
-		
-	
+
+
 	function food(){
 	var food_x=parseInt(Math.random()*max_x+1);
 	var food_y=parseInt(Math.random()*max_y+1);
@@ -113,7 +116,7 @@ document.getElementById("start")["onclick"]=function(){
 						return;
 						}
 					if(i==max_x&&j==max_y){
-					alert("哪个傻逼这么无聊竟然通关了");
+					alert("竟然通关了");
 					clearInterval(tt);
 					return;
 					}
@@ -198,18 +201,8 @@ document.getElementById("start")["onclick"]=function(){
 		document.getElementById(n2).className="black";
 		document.getElementById(n2).exist="1";
 	}
-	
-	document.body["onkeydown"]=function(event){
-		event=event||window.event;
-		var move = event.keyCode;
-		if(move==37||move==38||move==39||move==40){
-			if(move==direction||Math.abs(move-direction)==2){
-				return;
-			}
-			direction=move;			
-		}
-	}
-	
+
+
 	function auto(){
 		eraseTail();
 		follow();
@@ -218,3 +211,15 @@ document.getElementById("start")["onclick"]=function(){
 	}
 
 }
+
+
+document.body["onkeydown"]=function(event){
+		event=event||window.event;
+		var move = event.keyCode;
+		if(move==37||move==38||move==39||move==40){
+			if(move==direction||Math.abs(move-direction)==2){
+				return;
+			}
+			direction=move;
+		}
+	}
