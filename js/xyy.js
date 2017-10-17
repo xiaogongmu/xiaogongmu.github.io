@@ -51,6 +51,21 @@ $(function(){
 
 sampleApp1();
 
+    window["onscroll"] = function() {
+        var s = document.documentElement.scrollTop||document.body.scrollTop;
+        var sall =s+document.documentElement.clientHeight;
+        console.log(sall+ ""+document.documentElement.scrollHeight )
+        if (sall < document.documentElement.scrollHeight) {
+            document.getElementById("footer-i").style.bottom = "-64px";
+            
+        } else {
+            document.getElementById("footer-i").style.bottom = "0px";
+            
+        }
+            document.body.style.transitio = "1s";
+
+    }
+
 
 
 

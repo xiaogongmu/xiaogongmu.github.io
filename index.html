@@ -221,8 +221,7 @@
 
 
 
-<canvas id="glcanvas" width="200px" height="350px" 
-                style="position: fixed;right: -15px;bottom: 50px;z-index: 13">
+<canvas id="glcanvas" width="200px" height="350px" >
 </canvas>
 
 
@@ -230,7 +229,7 @@
 
 
 
-  <footer class="page-footer grey darken-2 " style="padding-top: 0px;position:fixed;bottom:0;width:100%;z-index: 14 ">
+  <footer id="footer-i" class="page-footer grey darken-2 ">
     
     <div class="footer-copyright grey darken-3 ">
       <div class="container ">
@@ -276,6 +275,21 @@
 
 </html>
 <script>
+
+    window["onscroll"] = function() {
+        var s = document.documentElement.scrollTop||document.body.scrollTop;
+        var sall =s+document.documentElement.clientHeight;
+        console.log(sall+ ""+document.documentElement.scrollHeight )
+        if (sall != document.documentElement.scrollHeight) {
+            document.getElementById("footer-i").style.bottom = "-64px";
+            
+        } else {
+            document.getElementById("footer-i").style.bottom = "0px";
+            
+            document.body.style.transitio = "1s";
+        }
+
+    }
 
 
 

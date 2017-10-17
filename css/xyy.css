@@ -34,3 +34,21 @@ opacity: 0;
    transition: all 1500ms linear 700ms;
   opacity: 1;
 }
+
+#footer-i{
+    padding-top: 0px;
+    position:fixed;
+    bottom:-64px;
+    width:100%;
+    z-index: 14 
+    -webkit-transition: all 2s cubic-bezier(0.1, 0.98, 0.99, 0.99);
+    -moz-transition: all 2s cubic-bezier(0.1, 0.98, 0.99, 0.99);
+    transition: all 2s cubic-bezier(0.1, 0.98, 0.99, 0.99);
+}
+
+#glcanvas{
+    position: fixed;
+    right: -15px;
+    bottom: 0px;
+    z-index: 18;
+}
