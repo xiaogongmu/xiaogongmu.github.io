@@ -29,7 +29,8 @@
                     optimized: {},
                     ordinal: {}
                 }
-            }, r.ordinal = {
+            },
+            r.ordinal = {
                 setup: function() {
                     var i;
                     for (i = 0, r.column.stacks.ordinal = []; i < r.number_of_columns;) r.column.stacks.ordinal[i] = 0, i++;
@@ -42,7 +43,8 @@
                     var i;
                     for (i = 0; i < r.items.length;) r.ordinal.plot(i), i++
                 }
-            }, r.optimized = {
+            },
+            r.optimized = {
                 setup: function() {
                     var i;
                     for (r.column.stacks.optimized = [], i = 0; i < r.number_of_columns;) r.column.stacks.optimized[i] = [i, 0], i++;
@@ -57,44 +59,60 @@
                     var i;
                     for (i = 0; i < r.items.length;) r.optimized.plot(i), i++
                 }
-            }, r.initialize = function() {
+            },
+            r.initialize = function() {
                 return $.stackgrid.config.container_selector = i, $.stackgrid.config.item_selector = t
-            }, r.setup = function() {
+            },
+            r.setup = function() {
                 var i, t, n, o, c, e, s;
                 for ($.stackgrid.reset(), r.$container = $($.stackgrid.config.container_selector), r.$items = $(r.$container.find($.stackgrid.config.item_selector)), s = r.$items, n = c = 0, e = s.length; e > c; n = ++c) o = s[n], i = $(o), i.width($.stackgrid.config.column_width), t = i.outerHeight(), r.items[n] = [i, t, 0, 0]
-            }, r.container.scale = function(i) {
+            },
+            r.container.scale = function(i) {
                 var t, n;
                 r.container.width = r.items.length < r.number_of_columns ? ($.stackgrid.config.column_width + $.stackgrid.config.gutter) * r.items.length : ($.stackgrid.config.column_width + $.stackgrid.config.gutter) * r.number_of_columns, t = r.container.height + $.stackgrid.config.gutter, n = r.container.width + $.stackgrid.config.gutter, $.stackgrid.config.scale(r.$container, t, n, i)
-            }, r.paint = function() {
+            },
+            r.paint = function() {
                 r.container.scale(function() {
                     var i, t, n, o, c, e, s;
                     for (e = r.items, s = [], t = o = 0, c = e.length; c > o; t = ++o) n = e[t], i = function() {}, s.push($.stackgrid.config.move(n[0], n[2], n[3], i));
                     return s
                 })
-            }, r.stack = function() {
+            },
+            r.stack = function() {
                 r.number_of_columns = $.stackgrid.config.is_fluid ? Math.floor((a.width - $.stackgrid.config.gutter) / ($.stackgrid.config.column_width + $.stackgrid.config.gutter)) : $.stackgrid.config.number_of_columns, $.stackgrid.config.is_optimized ? (r.optimized.setup(), r.optimized.loop()) : (r.ordinal.setup(), r.ordinal.loop()), r.paint()
-            }, $.stackgrid.reset = function() {
+            },
+            $.stackgrid.reset = function() {
                 r.column.stacks.optimized = [], r.column.stacks.ordinal = [], r.$items = [], r.items = []
-            }, $.stackgrid.restack = function() {
+            },
+            $.stackgrid.restack = function() {
                 r.setup(), r.stack()
-            }, $.stackgrid.append = function(i, t) {
+            },
+            $.stackgrid.append = function(i, t) {
                 var n, o, c;
                 n = $(i), c = r.items.length, n.width($.stackgrid.config.column_width), o = n.outerHeight(), r.items[c] = [n, o, 0, 0], $.stackgrid.config.is_optimized ? r.optimized.plot(c) : r.ordinal.plot(c), r.container.scale(function() {
                     return $.stackgrid.config.move(r.items[c][0], r.items[c][2], r.items[c][3], t)
                 })
-            }, d = {
+            },
+            d = {
                 handler: function() {
                     a.update()
                 },
                 complete: function() {
                     r.stack()
                 }
-            }, s = void 0, e = function(i, t) {
+            },
+            s = void 0, e = function(i, t) {
                 clearTimeout(s), s = window.setTimeout(i, t)
-            }, c.on("resize", function() {
+            },
+            c.on("resize", function() {
                 d.handler(), e(d.complete, $.stackgrid.config.resize_delay)
-            }), r.initialize(), r.setup(), r.stack()
-        }, $.stackgrid.config = {
+            }),
+            r.initialize()
+            r.setup()
+            r.stack()
+        },
+
+        $.stackgrid.config = {
             container_selector: void 0,
             item_selector: void 0,
             column_width: 320,

@@ -337,7 +337,7 @@ LAppModel.prototype.startMotion = function(name, no, priority)
     else if (!this.mainMotionManager.reserveMotion(priority))
     {
         if (LAppDefine.DEBUG_LOG)
-            console.log("Motion is running.")
+            // console.log("Motion is running.")
         return;
     }
 
@@ -373,7 +373,7 @@ LAppModel.prototype.setFadeInFadeOut = function(name, no, priority, motion)
     
     
     if (LAppDefine.DEBUG_LOG)
-            console.log("Start motion : " + motionName);
+            // console.log("Start motion : " + motionName);
 
     if (this.modelSetting.getMotionSound(name, no) == null)
     {
@@ -388,7 +388,7 @@ LAppModel.prototype.setFadeInFadeOut = function(name, no, priority, motion)
         snd.src = this.modelHomeDir + soundName;
         
         if (LAppDefine.DEBUG_LOG)
-            console.log("Start sound : " + soundName);
+            // console.log("Start sound : " + soundName);
         
         snd.play();
         this.mainMotionManager.startMotionPrio(motion, priority);
@@ -402,7 +402,7 @@ LAppModel.prototype.setExpression = function(name)
     var motion = this.expressions[name];
     
     if (LAppDefine.DEBUG_LOG)
-        console.log("Expression : " + name);
+        // console.log("Expression : " + name);
         
     this.expressionManager.startMotion(motion, false);
 }
@@ -411,7 +411,7 @@ LAppModel.prototype.setExpression = function(name)
 
 LAppModel.prototype.draw = function(gl)
 {
-    //console.log("--> LAppModel.draw()");
+    // console.log("--> LAppModel.draw()");
     
     // if(this.live2DModel == null) return;
     
