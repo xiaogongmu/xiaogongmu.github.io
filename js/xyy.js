@@ -33,22 +33,22 @@ $(function() {
 
 
 //random picture for div
-$(function(){
-	var ar = new Array;
-	$('img.activator').each(
-		function(){
+// $(function(){
+// 	var ar = new Array;
+// 	$('img.activator').each(
+// 		function(){
 
-    	var n = Math.round(50*Math.random());
-    	while (ar.indexOf(n)>-1) {
-    		 n++;
-    		 if (n>50) {
-    		 	n=0;
-    		 }
-    	}
-    	ar.push(n);
-    	this.src="img/background/a"+n+".jpg ";
-    })
-});
+//     	var n = Math.round(50*Math.random());
+//     	while (ar.indexOf(n)>-1) {
+//     		 n++;
+//     		 if (n>50) {
+//     		 	n=0;
+//     		 }
+//     	}
+//     	ar.push(n);
+//     	this.src="img/background/a"+n+".jpg ";
+//     })
+// });
 
 //load live2d
 sampleApp1();
