@@ -498,6 +498,7 @@
 		loadingTimeout;
 
 	function init() {
+		$(".grid--type-a").addClass('out');
 		// Preload images
 		imagesLoaded(body, function() {
 			// Initialize Masonry on each grid.
@@ -508,16 +509,18 @@
 					percentPosition: true,
 					transitionDuration: 0
 				});
-				masonry.push(m);
-				// Hide the grid.
 				grid.classList.add('grid--hidden');
+				masonry.push(m);
+
+				$(".grid--type-a").removeClass('out');
+				// Hide the grid.
 				// Init GridLoaderFx.
 				loaders.push(new GridLoaderFx(grid));
 			});
 			// Show current grid.
 			grids[currentGrid].classList.remove('grid--hidden');
-				loaders[currentGrid]._render("Shu");
 			// Init/Bind events.
+				loaders[currentGrid]._render("Shu");
 			// initEvents();
 			// Remove loading class from body
 			body.classList.remove('loading');

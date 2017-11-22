@@ -30,6 +30,10 @@
 opacity: 0;
 }
 
+.out{
+opacity: 0;
+}
+
 .fate{
    transition: all 1500ms linear 700ms;
   opacity: 1;
