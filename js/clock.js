@@ -138,7 +138,7 @@ if (c!=null) {
 ctx_clock= c.getContext("2d");
 document.getElementById('canv').style.backgroundImage=stringurl1+clockBackgroundNo+stringurl2;
 document.getElementById('canv').style.cursor = "pointer";
-document.getElementById('canv').style.margin = "10px auto";
+document.getElementById('canv').style.margin = "10px 36%";
 setInterval("move()", 250);
 }
     
