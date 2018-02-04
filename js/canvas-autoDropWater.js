@@ -10,22 +10,23 @@
     var rains = [],
         canvas = document.getElementById("canvas_water"),
         ctx = canvas.getContext("2d"),
+        clickCount = 0;
         rainCount = 25;         //水滴数量
-//        mX = -100,
-//        mY = -100;
+        mX = -100,
+        mY = -100;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
 
     function drop(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (var i = 0; i < rainCount; i++) {
+        for (var i = 0; i < rainCount+clickCount; i++) {
             var rain = rains[i];
             if(rain.exist == 1){
                 ctx.beginPath();
                 ctx.moveTo(rain.x,rain.y);
                 ctx.bezierCurveTo(rain.x-20,rain.y+20,rain.x+20,rain.y+20,rain.x,rain.y);
-                ctx.fillStyle = "RGB(100,200,233)";
+                ctx.fillStyle = rain.color;
                 ctx.globalAlpha = rain.opacity;
                 ctx.fill();
                 rain.y += rain.speed;
@@ -41,13 +42,13 @@
                 ctx.beginPath();
                 ctx.moveTo(rain.x - rain.radi, rain.dy);
                 ctx.bezierCurveTo(rain.x - rain.radi, rain.dy - rain.radi * 0.5, rain.x + rain.radi, rain.dy - rain.radi * 0.5, rain.x + rain.radi, rain.dy);
-                ctx.strokeStyle = "RGB(100,200,233)";
+                ctx.strokeStyle = rain.color;
                 ctx.globalAlpha = rain.opacity*(rain.maxRadi - rain.radi) / rain.maxRadi/2;
                 ctx.lineWidth = d;
 
                 var crg = ctx.createRadialGradient(rain.x, rain.dy, 0, rain.x, rain.dy - rain.radi * 0.5, rain.radi);
-                crg.addColorStop(0, "RGB(150,222,255)");
-                crg.addColorStop(1, "RGB(100,200,233)");
+                crg.addColorStop(0, rain.aboveColor);
+                crg.addColorStop(1, rain.color);
                 ctx.strokeStyle = crg;
 
                 ctx.stroke();
@@ -55,13 +56,13 @@
                 ctx.beginPath();
                 ctx.moveTo(rain.x - rain.radi, rain.dy);
                 ctx.bezierCurveTo(rain.x - rain.radi, rain.dy + rain.radi * 0.5, rain.x + rain.radi, rain.dy + rain.radi * 0.5, rain.x + rain.radi, rain.dy);
-                ctx.strokeStyle = "RGB(100,200,233)";
+                ctx.strokeStyle = rain.color;
                 ctx.globalAlpha = rain.opacity*(rain.maxRadi - rain.radi) / rain.maxRadi/2;
                 ctx.lineWidth = d;
 
                 var crg = ctx.createRadialGradient(rain.x, rain.dy, 0, rain.x, rain.dy + rain.radi * 0.5, rain.radi);
-                crg.addColorStop(0, "RGB(77,146,229)");
-                crg.addColorStop(1, "RGB(100,200,233)");
+                crg.addColorStop(0, rain.underColor);
+                crg.addColorStop(1, rain.color);
                 ctx.strokeStyle = crg;
 
                 ctx.stroke();
@@ -74,7 +75,9 @@
             }
 
             if(rain.exist == -1){
+                if(i<rainCount){
                 reset(rain);
+                }
             }
         }
         requestAnimationFrame(drop);
@@ -90,8 +93,21 @@
         rain.radi = 0;
     }
 
+    function resetClick(rain,x,y){
+        rain.x =  x,
+        rain.y = 0;
+        rain.dy = y,
+        rain.speed = (Math.random() * 2) + 5 * rain.dy/canvas.height,
+        rain.opacity = (Math.random() * 0.2) + 0.4 * rain.dy/canvas.height;
+        rain.exist = 1;
+        rain.radi = 0;
+        rain.color = "#DD0303";    //点击水滴的颜色
+        rain.aboveColor =  "#FF0000";
+        rain.underColor = "#AA0000"
+    }
+
     function init() {
-        for (var i = 0; i < rainCount; i++) {
+        for (var i = 0; i < 2*rainCount; i++) {
             var x = Math.floor(Math.random() * canvas.width),
                 y = - Math.floor(Math.random() * canvas.height),
                 dy = Math.floor(Math.random()  * canvas.height * 0.6 + canvas.height * 0.4),  //落点屏幕0.4以下
@@ -106,17 +122,44 @@
                     opacity: opacity,
                     exist: 1,           //是否在空中
                     radi: 0,         //水花半径
-                    maxRadi: 200       //最大水花半径
+                    maxRadi: 200,       //最大水花半径
+                    color: "#64C8E9", //"RGB(100,200,233)" 自动掉落水滴颜色
+                    aboveColor: "#96DEFF",        //"RGB(150,222,255)"
+                    underColor: "#4D92E5"               //"RGB(77,146,229)"
                 });
         }
         drop();
         console.log("滴答滴答 也许会让人感觉到烦躁吧。");
     }
 
-    // document.addEventListener("mousemove", function(e){
-    //     mX = e.clientX,
-    //     mY = e.clientY
-    // });
+    /**
+    * 函数节流
+    * 频率控制 返回函数连续调用时，action 执行频率限定为 次 / delay
+    * @param delay  {number}    延迟时间，单位毫秒
+    * @param action {function}  请求关联函数，实际应用需要调用的函数
+    * @return {function}    返回客户调用函数
+    */
+    var throttle = function(delay, action){
+      var last = 0 ;return function(){
+        var curr = +new Date()
+        if (curr - last > delay){
+          action.apply(this, arguments)
+          last = curr 
+        }
+      }
+    }
+
+    document.addEventListener("click",throttle(500, function(e){
+        if(clickCount >=  rainCount){
+            clickCount = 0;
+        }
+        var rain = rains[clickCount+rainCount];
+        mX = e.clientX,
+        mY = e.clientY
+        resetClick(rain,mX,mY);
+        clickCount++;
+        console.log('click'+clickCount);
+    }) );
     window.addEventListener("resize", function(){
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -125,114 +168,3 @@
     init();
 
 })();
-
-//******************************************************************
-
-// (function() {
-//     var flakes = [],
-//         canvas = document.getElementById("Snow"), //画布ID，与上一步创建的画布对应
-//         ctx = canvas.getContext("2d"),
-//         flakeCount = 200,  //雪花数量，数值越大雪花数量越多
-//         mX = -100,
-//         mY = -100;
-
-    
-//     canvas.width = window.innerWidth;
-//     canvas.height = window.innerHeight;
-
-//     function snow() {
-//         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-//         for (var i = 0; i < flakeCount; i++) {
-//             var flake = flakes[i],
-//                 x = mX,
-//                 y = mY,
-//                 minDist = 150,  //雪花距离鼠标指针的最小值，小于这个距离的雪花将受到鼠标的排斥
-//                 x2 = flake.x,
-//                 y2 = flake.y;
-
-//             var dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)),
-//                 dx = x2 - x,
-//                 dy = y2 - y;
-
-//             if (dist < minDist) {
-//                 var force = minDist / (dist * dist),
-//                     xcomp = (x - x2) / dist,
-//                     ycomp = (y - y2) / dist,
-//                     deltaV = force / 2;
-
-//                 flake.velX -= deltaV * xcomp;
-//                 flake.velY -= deltaV * ycomp;
-
-//             } else {
-//                 flake.velX *= .98;
-//                 if (flake.velY <= flake.speed) {
-//                     flake.velY = flake.speed
-//                 }
-//                 flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
-//             }
-
-//             ctx.fillStyle = "rgba(255,255,255," + flake.opacity + ")";  //雪花颜色
-//             flake.y += flake.velY;
-//             flake.x += flake.velX;
-
-//             if (flake.y >= canvas.height || flake.y <= 0) {
-//                 reset(flake);
-//             }
-
-//             if (flake.x >= canvas.width || flake.x <= 0) {
-//                 reset(flake);
-//             }
-
-//             ctx.beginPath();
-//             ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
-//             ctx.fill();
-//         }
-//         requestAnimationFrame(snow);
-//     };
-
-//     function reset(flake) {
-//         flake.x = Math.floor(Math.random() * canvas.width);
-//         flake.y = 0;
-//         flake.size = (Math.random() * 3) + 2;  //加号后面的值，雪花大小，为基准值，数值越大雪花越大
-//         flake.speed = (Math.random() * 1) + 0.5;  //加号后面的值，雪花速度，为基准值，数值越大雪花速度越快
-//         flake.velY = flake.speed;
-//         flake.velX = 0;
-//         flake.opacity = (Math.random() * 0.5) + 0.3;  //加号后面的值，为基准值，范围0~1
-//     }
-
-//     function init() {
-//         for (var i = 0; i < flakeCount; i++) {
-//             var x = Math.floor(Math.random() * canvas.width),
-//                 y = Math.floor(Math.random() * canvas.height),
-//                 size = (Math.random() * 3) + 2,  //加号后面的值，雪花大小，为基准值，数值越大雪花越大
-//                 speed = (Math.random() * 1) + 0.5,  //加号后面的值，雪花速度，为基准值，数值越大雪花速度越快
-//                 opacity = (Math.random() * 0.5) + 0.3;  //加号后面的值，为基准值，范围0~1
-
-//             flakes.push({
-//                 speed: speed,
-//                 velY: speed,
-//                 velX: 0,
-//                 x: x,
-//                 y: y,
-//                 size: size,
-//                 stepSize: (Math.random()) / 30 * 1,  //乘号后面的值，雪花横移幅度，为基准值，数值越大雪花横移幅度越大，0为竖直下落
-//                 step: 0,
-//                 angle: 180,
-//                 opacity: opacity
-//             });
-//         }
-
-//         snow();
-//     };
-
-//     document.addEventListener("mousemove", function(e) {
-//         mX = e.clientX,
-//         mY = e.clientY
-//     });
-//     window.addEventListener("resize", function() {
-//         canvas.width = window.innerWidth;
-//         canvas.height = window.innerHeight;
-//     });
-//     init();
-// })();
