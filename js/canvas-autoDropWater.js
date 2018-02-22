@@ -10,8 +10,8 @@
     var rains = [],
         canvas = document.getElementById("canvas_water"),
         ctx = canvas.getContext("2d"),
-        clickCount = 0;
-        rainCount = 25;         //水滴数量
+        clickCount = 0,
+        rainCount = 25,        //水滴数量
         mX = -100,
         mY = -100;
         canvas.width = window.innerWidth;
@@ -154,11 +154,10 @@
             clickCount = 0;
         }
         var rain = rains[clickCount+rainCount];
-        mX = e.clientX,
-        mY = e.clientY
+        mX = e.clientX;
+        mY = e.clientY;
         resetClick(rain,mX,mY);
         clickCount++;
-        console.log('click'+clickCount);
     }) );
     window.addEventListener("resize", function(){
         canvas.width = window.innerWidth;

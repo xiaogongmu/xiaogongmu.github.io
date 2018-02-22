@@ -115,7 +115,7 @@ function move() {
     ctx_clock.translate(-widthB - 1, -widthB - 1);
 }
 
-var stringurl1 = 'url("/img/clockBackground/c';
+var stringurl1 = 'url("/images/clockBackground/c';
 var stringurl2 = '.jpg';
 var clockBackgroundNo = Math.round(3*Math.random());
 var maxClockBackgroundNo = 3;

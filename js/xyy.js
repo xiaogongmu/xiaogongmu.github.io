@@ -51,7 +51,15 @@ $(function() {
 // });
 
 //load live2d
-sampleApp1();
+
+function isIE() { //ie?
+ if (!!window.ActiveXObject || "ActiveXObject" in window)
+  return true;
+  else
+  return false;
+ }
+
+if(!isIE()){sampleApp1()};
 
 // change scroll footer
 window["onscroll"] = function() {
